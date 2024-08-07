@@ -1,0 +1,42 @@
+---
+exp_name: resnet_seg_PMS-11
+
+codec:
+  model: E2EModelPMS 
+  latent_dim: 128
+  skip_connection: conv2d
+  num_resblocks: 5
+  en_mid_channels: [3, 64, 64]
+  en_strides: [2, 2, 2]
+  probmodel:
+    pms_profile: extra
+
+machine:
+  tasks: &TASKS ["seg"]
+  task_proxy: NULL
+
+intra_human_adapter:
+  en_layer_channels: [3, 64, 64, 64]
+  en_strides: [2,2,2]
+  resblocks_size: 3
+  skip_connection: "conv2d"
+  lateral_connection: "conv2d"
+  injections: [1,1]
+  inj_out_chn: 4
+  inj_operator: "concatenate"
+
+inter_machine_adapter:
+  int_conv: True # False by default
+  en_layer_channels: [3, 64, 64, 64]
+  en_strides: [2,2,2]
+  resblocks_size: 3
+  skip_connection: "conv2d"
+  lateral_connection: "conv2d"
+  injections: [0,0]
+  inj_out_chn: 4
+  inj_operator: "concatenate"
+
+logging:
+  print_every: 100
+  save_interval: 1
+

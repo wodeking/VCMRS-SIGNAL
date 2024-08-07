@@ -1,0 +1,10 @@
+b667b682306ce234c746a9ce7dc822dc  ./vcmrs/InnerCodec/NNManager/Pretrained/run_config.yaml
+799b79320bf74119480048bb58756ac9  ./vcmrs/InnerCodec/NNManager/Pretrained/intra_human_adapter_A1.pth.tar
+c99b5c964763dfed88c3f3497579781e  ./vcmrs/InnerCodec/NNManager/Pretrained/inter_machine_adapter_A3_wo_inject_w01.pth.tar
+1804d7e85053d8bc5298f564eadfac16  ./vcmrs/InnerCodec/NNManager/Pretrained/inter_machine_adapter_A0_w001.pth.tar
+7307e27675252116bfdd3861afb8584d  ./vcmrs/InnerCodec/NNManager/Pretrained/intra_codec/model_220.pth.tar
+2a9a2de2430c8e4dff65122c9042bb5a  ./vcmrs/InnerCodec/NNManager/Pretrained/intra_codec/model_30.pth.tar
+1e8673959fb363021bd4984255554430  ./vcmrs/InnerCodec/NNManager/Pretrained/intra_codec/model_170.pth.tar
+a1be8d4aba3c40ae7a0c8c3a69682c21  ./vcmrs/InnerCodec/NNManager/Pretrained/intra_codec/model_270.pth.tar
+90763519bb34644f95f6039b4b1317f3  ./vcmrs/InnerCodec/NNManager/Pretrained/intra_codec/model_120.pth.tar
+389c8c29967daaa9f4ed0e916176269f  ./vcmrs/InnerCodec/NNManager/Pretrained/intra_codec/model_18.pth.tar

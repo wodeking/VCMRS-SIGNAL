@@ -1,0 +1,128 @@
+
+- Version 0.9
+  - !95 M67502 temporal resample
+  - !96 M67677 Pandaset encoding scripts and readme update
+  - !97 M66988 improved roi retargeting
+  - !98 m67501 lightweight codec
+  - !99 V0.9 rc m67560 time complexity
+  - !100 Change Pandaset YUV file names from _30.yuv to _10.yuv
+  - !101 deprecate : selective_deactivation() in spatial resample
+  - !102 Added scripts for encoding Pandas dataset for hybrid inner codec.
+  - !103 Added --single_chunk parameter as default, due to issue #58 "Spatial resampling tool does not produce the same results in multi_chunk mode"
+
+  Known issue: 
+  - The codec may generate different results onusing multi chunk mode (without --single_chunk parameter). 
+ 
+- Version 0.8.1
+  - #56 Missing utils.py
+  - #55 Not replicable numerical results during encoding
+
+- Version 0.8
+  !91 CE3.2 spatial resampling adoption
+  !90 retargeting technology adopted from m66523
+  !86 lightweight codec config
+  #49 refactoring of ROI code
+  Various bug fixes and improvements
+
+  Known issue: 
+    The codec may generate different results on a system using CPUs without support of AVX2 instructions. 
+ 
+- Version 0.7
+  #45: Temporal resampler at the decoder side does not achieve numerical stability
+  #44: Analysis network used by ROI component is not stable on differnt different computing environments
+  #33: Inner Codec GOP length should be changed, after temporal downsampler Bit trucation adoption
+  QP value update according to CTC
+  Various bug fixes and improvements
+
+
+- Version 0.6.1
+  !60: VTM failure related to LMCS modification
+
+- Version 0.6
+  !48: Adoption of ROI-enalbed technology
+  !56: bug fix for F.interpolate mode in temporal resampler
+  !47: switch on/off LMCS due to next frame of I frame
+  #38: support of format adapter to recude the color coversion between the components
+  
+
+- Version 0.5.2
+  Buf fix for #35: Temporal resampler is numerically unstable across different platforms
+  Bug fix for #32: minor fixes for documentation and encoding scripts for v0.5
+
+
+- Version 0.5.1
+  Buf fix for #30: Map intra_indices after temporal upsampler
+  minor fixes for documentation and encoding scripts for v0.5
+
+ 
+- Version 0.5
+  QP values for video datasets are changed to make the RD curves more monotonic. 
+  In hybrid inner codec mode, QP values for AI configuration are changed. 
+  Integer convolution uses float32 only mode.
+  IMA as a post filter.
+  Add temporal resample module.
+
+
+- Version 0.4.1
+Bug fixes: 
+  - The reconstructed intra frames are fixed for the configuration of input video in YUV format, NNVVC as inner codec and IMA off
+  - Fix time collection script, and scripts for encoding and decoding the VCM test datasets
+
+Issues: 14, 15, 16
+
+
+- Version 0.4
+* support video input in YUV format
+* support LowDelay and AllIntra encoding configuration
+* deterministic encoding by performing convolution in integer domain at the encoder side
+* support ffmpeg executable path in input arguments
+* support encoding time report
+
+
+
+# Version 0.3.1
+Bug fixes:
+Issues: #11
+Big fix: images with odd sizes are not decoded correctly
+
+# Version 0.3
+
+New features:
+* Using ffmpeg for padding and color conversion when VTM is used as the inner codec. 
+
+Bug fixes:
+Issues: #1, #2, #3, #6
+Bug fix: optimization for speed for intra lossless coding is also used in lossy intra coding. 
+
+# Version 0.2
+
+The first functional release of VCM common framework (VCM reference software).
+
+Main features:
+ * Encoding and decoding of the VCM testing dataset using the default inner codec. By default all pre- and post- inner codec components are in bypass mode.
+ * API definition and example implementation of pre- and post inner codec component
+ * API definition and example implementation of learned image codec component 
+
+# Version 0.1
+ 
+The initial version of the VCM common framework (VCM reference software), including plugin API definitions for pre-inner codec components, post-inner codec components, and neural network-based intra-frame codecs.
+ 
+The release is mainly for testing the defined APIs for pre- and post-inner codec components. The functionalities of the common framework have not been completed and fully tested.
+
+Main features:
+ * API definitions for pre- and post- inner codec components
+ * An example implementation of a simple downsampling tool for spatial resampling is included in folder vcmrs/SpatialResample
+ * API definitions for neural network-based intra codec 
+ * An example implementation of a neural network-based intra codec is included in folder vcmrs/InnerCodec/NNManager/NNIntraCodec/ExampleIntraCodec
+ 
+Known issues
+
+ * Using the VTM as the inner codec for image compression has not been implemented.
+ * The encoding and decoding output debug messages to screen.
+ * The code needs to be cleaned up and refactored. This release contains duplicate codes in many components.
+ * No testing codes are provided.
+ * The input files are identified by file names. If there are files in different directories havethe same name, there will be conflict! Current implementation does not handle this situation.
+ * In the current implementation, the reconstructed image are used from Intra Codec to IHA for the sake of simplicity for the NNIC interface. The system can be improved by transfering the torch tensor to the IHA. 
+
+
+

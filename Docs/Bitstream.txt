@@ -1,0 +1,12 @@
+
+The temporary bitstream format is described below. The format will be refined after high-level syntax for VCM are define. 
+
+<'VCM': 3 bytes>: only for testing purpose
+for ii in number_of_components:
+  <component_id: 1 byte>
+  <param_data_length: unsigned short(2 bytes)>
+  <param_data: variable>
+<component_ending '\x255': 1 byte>
+<inner_codec_bitstream: variable>
+
+
